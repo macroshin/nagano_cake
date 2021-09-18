@@ -16,11 +16,3 @@ ja:
         production_pending: '製作待ち'
         in_production: '製作中'
         production_complete: '製作完了'
-    item:
-      is_active:
-        active: '販売中'
-        inactive: '販売停止中'
-    customer:
-      is_active:
-        active: '有効'
-        inactive: '退会'
