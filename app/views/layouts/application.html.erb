@@ -21,18 +21,36 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <%= link_to "商品一覧", admin_items_path %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "会員一覧", admin_customers_path %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "注文履歴一覧", admin_root_path %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "ジャンル一覧", admin_genres_path %>
-              </li>
+              <% if admin_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "商品一覧", admin_items_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "会員一覧", admin_customers_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "注文履歴一覧", admin_root_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ジャンル一覧", admin_genres_path %>
+                </li>
+                 <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  About
+                </li>
+                <li class="nav-item">
+                  商品一覧
+                </li>
+                <li class="nav-item">
+                  新規登録
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", admin_session_path %>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>
