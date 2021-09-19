@@ -1,21 +1,31 @@
-<h2>会員一覧</h2>
-<table>
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
+<div class="col-md-2 offset-md-1">
+  <h5 class="page_title">会員一覧</h5>
+</div>
+<div class="col-md-10 offset-md-1">
+  <table class="table">
+    <thead>
       <tr>
-        <th><%= customer.id %></th>
-        <th><%= customer.last_name %><%= customer.first_name %></th>
-        <th><%= customer.email %></th>
-        <th><%= customer.is_active_i18n %></th>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <th><%= customer.id %></th>
+          <th><%= link_to customer.last_name+customer.first_name, admin_customer_path(customer.id) %></th>
+          <th><%= customer.email %></th>
+          <th>
+          <% if customer.is_active == true %>
+          有効
+          <% else %>
+          退会
+          <% end %>
+        </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

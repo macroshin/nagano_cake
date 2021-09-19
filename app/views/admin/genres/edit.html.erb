@@ -1,4 +1,8 @@
-<h3>ジャンル編集</h3>
+<div class="offset-md-1">
+  <h5 class="page_title">ジャンル一覧・追加</h5>
+</div>
+<div class="col-md-6 offset-1">
+  <div class="form-inline">
   <%= form_with model: [:admin, @genre], local:true do |f| %>
     <div class="form-group">
       <label for="genre_name">ジャンル名</label>
@@ -8,3 +12,5 @@
       <%= f.submit '変更を保存', class:"btn btn-success" %>
     </div>
   <% end %>
+  </div>
+</div>

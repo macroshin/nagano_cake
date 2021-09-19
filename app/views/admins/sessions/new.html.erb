@@ -1,11 +1,8 @@
 <div class="container">
   <div class="row">
-    <div>
-    <h3>管理者ログイン</h3>
-    </div>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h4 class="page_title">管理者ログイン</h4>
+      <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
         <div class="field">
           <%= f.label :email, "メールアドレス" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

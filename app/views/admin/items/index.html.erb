@@ -1,7 +1,11 @@
-<h2>商品一覧</h2>
-<%= link_to "追加", new_admin_item_path %>
-
-<table>
+<div class=row>
+  <div class="col-md-2 offset-md-1">
+    <h5 class="page_title">商品一覧</h5>
+  </div>
+  <%= link_to "＋", new_admin_item_path, class: 'btn btn-outline-secondary rounded-circle p-0' %>
+</div>
+<div class="col-md-10 offset-md-1">
+<table class="table">
   <thead>
     <tr>
       <th>商品ID</th>
@@ -18,9 +22,15 @@
         <th><%= link_to item.name, admin_item_path(item.id) %></th>
         <th><%= item.price %></th>
         <th><%= item.genre.name %></th>
-        <th><%= item.is_active %></th>
+        <th>
+          <% if item.is_active == true %>
+          販売中
+          <% else %>
+          販売停止中
+          <% end %>
+        </th>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
