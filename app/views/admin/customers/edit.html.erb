@@ -1,0 +1,61 @@
+<div class="col-md-2 offset-md-1">
+  <h5 class="page_title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h5>
+</div>
+<div class="col-md-4 offset-md-1">
+  <table class="table table-borderless">
+  <tr>
+    <th>会員ID</th>
+    <td><%= @customer.id %></td>
+  </tr>
+  <%= form_with model: [:admin, @customer], local:true do |f| %>
+  <tr>
+    <th><label for="custome_last_name">氏名</label></th>
+    <td>
+      <%= f.text_field :last_name, class:"form-control last_name", id:"customer_last_name" %>
+      <%= f.text_field :first_name, class:"form-control first_name", id:"customer_first_name" %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="custome_last_name_kana">フリガナ</label></th>
+    <td>
+      <%= f.text_field :last_name_kana, class:"form-control last_name_kana", id:"customer_last_name_kana" %>
+      <%= f.text_field :first_name_kana, class:"form-control first_name_kana", id:"customer_first_name_kana" %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="customer_postal_code">郵便番号</label></th>
+    <td>
+      <%= f.text_field :postal_code,class:"form-control postal_code", id:"customer_postal_code" %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="customer_address">住所</label></th>
+    <td>
+      <%= f.text_field :address,class:"form-control address", id:"customer_address" %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="customer_telephone_number">電話番号</label></th>
+    <td>
+      <%= f.text_field :telephone_number,class:"form-control telephone_number", id:"customer_telephone_number" %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="customer_email">メールアドレス</label></th>
+    <td>
+      <%= f.text_field :email,class:"form-control email", id:"customer_email" %>
+    </td>
+  </tr>
+  <tr>
+    <th>会員ステータス</th>
+    <td>
+      <%= f.radio_button :is_active, true, checked: true %>有効
+      <%= f.radio_button :is_active, false %>退会
+    </td>
+  </tr>
+  </table>
+    <div class="form-group">
+      <%= f.submit '変更を保存', class:"btn btn-secondary" %>
+    </div>
+  <% end %>
+  </div>
